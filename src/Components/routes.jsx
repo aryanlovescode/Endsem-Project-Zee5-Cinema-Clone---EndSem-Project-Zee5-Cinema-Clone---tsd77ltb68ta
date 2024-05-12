@@ -7,19 +7,19 @@ import RootLayout from "../rootLayout";
 const Routes = (props)=>{
     const router = createBrowserRouter([
         {
-            path: "/",
+            path: "/home",
             element : <RootLayout loginStatus = {props.loginStatus} setLoginStatus = {props.setLoginStatus}/>,
             children: [
                 {
-                    path:"/",
+                    path:"/home",
                     element:<HomePage loginStatus = {props.loginStatus}/>
                 },
                 {
-                    path: "/signup",
+                    path: "/home/signup",
                     element: <SignUpPage/>
                 },
                 {
-                    path: "/login",
+                    path: "/home/signin",
                     element: <LoginPage setLoginStatus = {props.setLoginStatus}/>
                 }
             ]

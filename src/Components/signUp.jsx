@@ -37,13 +37,13 @@ const SignUpPage = (props) => {
         requestOptions
       );
       const data = await response.json();
-      console.log(data.status);
+      console.log(data);
       setSignupStatus(data.status); // Update signup status state
       // Redirect to login page if signup is successful
       if (data.status === "success") {
-        navigate("/login");
+        navigate("/home/signin");
       }else{
-        setErrorMessage("User Already Exist!")
+        setErrorMessage(data.message)
         setTimeout(() => {
           setErrorMessage("");
         }, 5000);
@@ -88,14 +88,14 @@ const SignUpPage = (props) => {
         </div>
 
         
-          <div className="mt-2">
-            <span className="font-bold text-lg text-green-600">{errorMessage}</span>
+          <div className="mt-1">
+            <span className="font-bold text-lg text-red-600">{errorMessage}</span>
             
           </div>
 
           <div className="mt-0">
             <span className="font-normal text-sm">Already have an account,</span>
-            <Link to="/login"><span className="text-sm font-bold cursor-pointer">Sign in here.</span></Link>  
+            <Link to="/home/signin"><span className="text-sm font-bold cursor-pointer">Sign in here.</span></Link>  
           </div>
        
 

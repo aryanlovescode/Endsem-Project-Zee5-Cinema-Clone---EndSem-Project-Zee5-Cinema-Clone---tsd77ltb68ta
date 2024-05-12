@@ -38,7 +38,7 @@ const LoginPage = (props)=>{
       const data = await response.json();
       console.log(data.status);
       if (data.status == "success"){
-        navigate("/")
+        navigate("/home")
         props.setLoginStatus(true)
       } else{
         setErrorMessage("Wrong Credentials!")
@@ -81,7 +81,7 @@ const LoginPage = (props)=>{
             </div>
             <div class="mt-1">
                 <span className="font-normal text-xl">New to Zee5, </span>
-                <Link to = "/signup"><span className="text-xl font-bold cursor-pointer">Sign Up here.</span></Link>
+                <Link to = "/home/signup"><span className="text-xl font-bold cursor-pointer">Sign Up here.</span></Link>
                 
             </div>
 

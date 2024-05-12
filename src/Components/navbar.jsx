@@ -11,10 +11,10 @@ const Navbar = (props) => {
 
     return (
         <div className="navbar fixed top-0 left-0 right-0 bg-black p-3 flex justify-between z-10">
-            <div onClick={() => navigate("/")} className="">
+            <div onClick={() => navigate("/home")} className="">
                 <img className="w-14" src={MySVG} alt="logo" />
             </div>
-            <Link to={props.loginStatus ? "/signup" : "/login"}>
+            <Link to={props.loginStatus ? "/home/signup" : "/home/signin"}>
                 <div onClick={handleLoginState} className="text-white border-2 border-solid p-2 rounded-md cursor-pointer">
                     <span>{props.loginStatus ? "Sign out" : "Sign in"}</span>
                 </div>
