@@ -4,14 +4,15 @@ import React from 'react';
 
 const MoviePoster = (props) => {
     const [showPopup, setShowPopup] = useState(false);
+
     const navigate = useNavigate();
 
 
-    const MoviePopup = ({ title, keyWords, trailerUrl}) => (
+    const MoviePopup = ({ title, keyWords, trailerUrl, onClick}) => (
         <div className="popup mb-2">
           <div className="popup-content">
             <p className="font-normal text-lg">{keyWords}</p>
-            <a href={trailerUrl} target="_blank" rel="noopener noreferrer" className="font-normal text-lg border border-solid p-2 pr-3 pl-3 border-black rounded-md">Watch Now</a>
+            <a onClick={()=> onClick(trailerUrl)} className="font-normal text-lg border border-solid p-2 pr-3 pl-3 border-black rounded-md cursor-pointer">Watch Now</a>
           </div>
         </div>
       );
@@ -19,11 +20,13 @@ const MoviePoster = (props) => {
     const openPopup = () => {
        showPopup ? setShowPopup(false) : setShowPopup(true);
     };
+
+  
   
 
 
     const handlePosterClick = ()=>{
-        props.loginStatus?openPopup():navigate("/home/signin")
+        openPopup()
 
     }
     
@@ -37,6 +40,7 @@ const MoviePoster = (props) => {
             title={props.title}
             keyWords={props.keyWords}
             trailerUrl={props.videoUrl}
+            onClick = {props.onClick}
         />
       )}
         </div>
